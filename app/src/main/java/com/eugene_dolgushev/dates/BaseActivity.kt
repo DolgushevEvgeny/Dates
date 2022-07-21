@@ -19,8 +19,4 @@ open class BaseActivity : AppCompatActivity() {
         titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
         titleView.setTextColor(ContextCompat.getColor(this, android.R.color.white))
     }
-
-    override fun setContentView(layoutResID: Int) {
-        super.setContentView(layoutResID)
-    }
 }

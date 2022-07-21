@@ -1,4 +1,4 @@
-package com.eugene_dolgushev.dates.eventList.presentation
+package com.eugene_dolgushev.dates.events.eventList.presentation
 
 import com.eugene_dolgushev.dates.getViewModel
 

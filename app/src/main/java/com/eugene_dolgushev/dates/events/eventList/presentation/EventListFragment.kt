@@ -1,39 +1,35 @@
-package com.eugene_dolgushev.dates.eventList.presentation
+package com.eugene_dolgushev.dates.events.eventList.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.eugene_dolgushev.dates.BaseFragment
-import com.eugene_dolgushev.dates.R
-import com.eugene_dolgushev.dates.databinding.EventListFragmentBinding
-import com.eugene_dolgushev.dates.loadFragment
+import com.eugene_dolgushev.dates.databinding.FragmentEventListBinding
+import com.eugene_dolgushev.dates.setupAsSupportActionbar
 
 class EventListFragment : BaseFragment() {
 
     private val viewModel: EventListViewModel by lazy {
         viewModel()
     }
-    private lateinit var viewBinding: EventListFragmentBinding
+    private lateinit var viewBinding: FragmentEventListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewBinding = EventListFragmentBinding.inflate(inflater, container, false)
+        viewBinding = FragmentEventListBinding.inflate(inflater, container, false)
         setTitle(TITLE)
         return viewBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupAsSupportActionbar(view, TITLE, false)
         with(viewBinding) {
             addEventButton.setOnClickListener {
-                loadFragment(
-                    newInstance(),
-                    containerId = R.id.fragment_wrapper,
-                    true
-                )
+//                findNavController().navigate()
             }
         }
     }
