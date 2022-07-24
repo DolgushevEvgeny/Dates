@@ -1,27 +1,20 @@
 package com.eugene_dolgushev.dates.events.eventList.presentation
 
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.text.Layout
 import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.eugene_dolgushev.dates.BaseFragment
+import com.eugene_dolgushev.dates.R
 import com.eugene_dolgushev.dates.databinding.FragmentEventListBinding
 import com.eugene_dolgushev.dates.setupAsSupportActionbar
 
-class EventListFragment : BaseFragment() {
+class EventListFragment : BaseFragment(R.layout.fragment_event_list) {
 
+    private val viewBinding by viewBinding(FragmentEventListBinding::bind)
     private val viewModel: EventListViewModel by lazy {
         viewModel()
-    }
-    private lateinit var viewBinding: FragmentEventListBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        viewBinding = FragmentEventListBinding.inflate(inflater, container, false)
-        setTitle(TITLE)
-        return viewBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,13 +22,12 @@ class EventListFragment : BaseFragment() {
         setupAsSupportActionbar(view, TITLE, false)
         with(viewBinding) {
             addEventButton.setOnClickListener {
-//                findNavController().navigate()
+                findNavController().navigate(EventListFragmentDirections.actionToAddEventFragment())
             }
         }
     }
 
     companion object {
         private const val TITLE = "Мероприятия"
-        fun newInstance() = EventListFragment()
     }
 }

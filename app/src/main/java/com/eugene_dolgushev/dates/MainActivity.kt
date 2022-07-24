@@ -6,7 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 
 class MainActivity : BaseActivity() {
 
-    private val mNavController: NavController
+    val navController: NavController
         get() = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +15,6 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return mNavController.navigateUp()
+        return navController.navigateUp()
     }
 }
