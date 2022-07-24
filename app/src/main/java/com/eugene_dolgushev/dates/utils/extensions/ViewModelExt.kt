@@ -1,4 +1,4 @@
-package com.eugene_dolgushev.dates
+package com.eugene_dolgushev.dates.utils.extensions
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
