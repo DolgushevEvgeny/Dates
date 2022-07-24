@@ -9,7 +9,6 @@ import com.eugene_dolgushev.dates.room.converters.DateTypeConverter
 import java.util.*
 
 @Entity(
-    tableName = "notifications",
     foreignKeys = [ForeignKey(
         entity = Event::class,
         parentColumns = arrayOf("id"),
@@ -18,8 +17,9 @@ import java.util.*
     )]
 )
 @TypeConverters(DateTypeConverter::class)
-data class Notification(val date: Date, val eventId: Long) {
-
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0
+data class Notification(
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
+    val date: Date,
+    val eventId: Long
+) {
 }
