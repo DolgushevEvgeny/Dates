@@ -10,7 +10,9 @@ import com.eugene_dolgushev.dates.room.database.DataBase.Companion.DATABASE_NAME
 interface DataSource : NotificationDataSource, EventDataSource {
 
     abstract class Abstract(context: Context, databaseName: String) : DataSource {
-        private val room: DataBase = Room.databaseBuilder(
+
+        @Volatile
+        private var room: DataBase = Room.databaseBuilder(
             context,
             DataBase::class.java,
             databaseName

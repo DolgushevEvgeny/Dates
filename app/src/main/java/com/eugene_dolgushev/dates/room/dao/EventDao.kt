@@ -10,7 +10,7 @@ import com.eugene_dolgushev.dates.room.Event
 interface EventDao {
 
     @Insert
-    suspend fun insert(event: Event)
+    suspend fun add(event: Event)
 
     @Query("Select * from Event")
     fun list(): LiveData<List<Event>>
